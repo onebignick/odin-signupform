@@ -8,38 +8,105 @@ body {
     display: flex;
 }
 
-
 #image-sidebar {
-    max-width: 500px;
+    flex: 1;
+    position: relative;
+    min-width: 400px;
     height: 100vh;
+    overflow: hidden;
 
-    #image-sidebar-background {
-        max-width: 400px;
-        height: 100vh;
-        #image-text {
-            font-family: Norse-Bold;
-            font-size: 60px;
+    #sidebar-image {
+        width: 100%;
+        height: 100%;
+        z-index: -5;
+    }
+
+    #splash-text {
+        position: absolute;
+        max-height: 100px;
+        width: 100%;
+        top: 20%;
+        font-family: Norse-Bold;
+        font-size: 60px;
+        background: rgba(0,0,0,0.6);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        #splash-text-image {
+            width: 100px;
+            max-height: 100px;
+            object-fit: contain;
+        }
+    }
+}
+
+#main {
+    height: 100vh;
+    flex: 3;
+}
+
+#main-body {
+    padding: 10vh 5vw;
+}
+
+.text {
+    font-family: Arial;
+    font-weight: 600;
+    font-size: 25px;
+}
+.container-row {
+    display: flex;
+
+    .item-input {
+        padding: 20px 20px 20px 0px;
+        label {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            color: gray;
+        }
+        %input {
+            border: solid;
+            border-width: 1px;
+            border-radius: 4px;
+            height: 20px;
+        }
+        .input{
+            @extend %input;
+            border-color: #E5E7EB;
+            & :focus {
+                outline: none;
+                box-shadow:skyblue;
+            }
+        }
+        .error {
+            @extend %input;
+            border-color: red;
         }
     }
 }
 
 
-.container-row {
-    display: flex;
 
-    .item-input {
-        padding: 20px;
-        label {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 10px;
-            font-weight: 600;
-        }
-        .input {
-            border: solid;
-            border-color: #E5E7EB;
-            border-width: 1px;
-            border-radius: 4px;
-        }
-    }
+#submit-button {
+    background-color: #596D48;
+    color: #E5E7EB;
+    border-style: none;
+    font-weight: 600;
+    border-radius: 8px;
+    height: 40px;
+    width: 150px;
+}
 
+#footnote {
+    font-size: 18px;
+}
+
+#login-link {
+    font-size: 18px;
+    color: #596D48;
+    font-weight: 600;
+    text-decoration: none;
 }
